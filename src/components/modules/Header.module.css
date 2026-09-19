@@ -1,0 +1,164 @@
+@media screen and (min-width: 1000px) {
+  .container {
+    width: 100%;
+    height: 20vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+
+    background: linear-gradient(
+      211deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(5, 4, 78, 1) 18%,
+      rgba(9, 9, 121, 1) 65%,
+      rgba(0, 166, 255, 1) 100%
+    );
+
+    padding: 20px 10px;
+
+    background-size: 200% 200%;
+    animation: gradientMoveHeader 8s ease infinite;
+  }
+
+  .logo {
+    border-radius: 100%;
+    box-shadow: 0px 1px 70px gray;
+  }
+
+  .right {
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .right a {
+    margin: 0 30px;
+    display: flex;
+    align-items: center;
+  }
+
+  .login {
+    display: flex;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px 30px;
+    font-weight: bold;
+  }
+
+  .login a {
+    color: rgb(0, 35, 73);
+  }
+    .menuButton {
+    display: none;
+
+  }
+}
+
+@keyframes gradientMoveHeader {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/***********  mobile Menu ****************/
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media screen and (max-width: 1000px) {
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 20px;
+    align-items: center;
+    height: 70px;
+    padding: 8px 15px;
+     background: linear-gradient(
+      211deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(5, 4, 78, 1) 18%,
+      rgba(9, 9, 121, 1) 65%,
+      rgba(0, 166, 255, 1) 100%
+    );
+       background-size: 200% 200%;
+    animation: gradientMoveHeader 8s ease infinite;
+  }
+
+  .logo img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+  }
+
+  /* مخفی کردن لینک‌های دسکتاپ */
+
+  .right a {
+    display: none;
+  }
+
+  .login {
+    display: none;
+  }
+
+  /* نمایش دکمه منو */
+
+  .menuButton {
+    display: block;
+
+  }
+}
+
+
+.mobileMenu {
+  position: absolute;
+
+  top: 70px;
+  right: 0;
+
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 20px;
+
+  background: rgba(2, 0, 36, 0.98);
+
+  gap: 20px;
+
+}
+
+
+.mobileMenu a {
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+    &:hover{
+    cursor: pointer;
+
+    opacity: 0.8;
+    padding-right: 10px;
+    text-shadow: 5px 5px 50px gray;
+    transition: all 300ms linear;
+  }
+}
