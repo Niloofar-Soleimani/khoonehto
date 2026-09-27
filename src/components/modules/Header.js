@@ -31,7 +31,7 @@ function Header() {
 
 
           )} */}
-          <Link href="/signin">ورود</Link> <span> | </span>
+          <Link href="/signup">ورود</Link> <span> | </span>
           <Link href="/account">حساب کاربری</Link>
         </div>
         <button

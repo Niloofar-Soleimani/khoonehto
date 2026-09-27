@@ -20,8 +20,8 @@ function Footer() {
         </ul>
       </div>
       <div className={styles.left}>
-        <p>آدرس : سمنان</p>
-        <p>تلفن تماس : 02333335642</p>
+        <p>آدرس : تهران</p>
+        <p>تلفن تماس : 021-33335642</p>
       </div>
     </div>
   );

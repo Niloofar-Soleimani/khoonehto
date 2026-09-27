@@ -5,8 +5,8 @@
     background: linear-gradient(211deg, rgba(2, 0, 36, 1) 0%, rgba(5, 4, 78, 1) 18%, rgba(9, 9, 121, 1) 65%, rgba(0, 166, 255, 1) 100%);
     padding: 20px;
   
- position: fixed;
- bottom: 0;
+ /* position: fixed;
+ bottom: 0; */
       background-size: 200% 200%;
   animation: gradientMove 8s ease infinite;
     
