@@ -1,31 +1,38 @@
 import User from "@/models/User";
 import { VerifyPassword } from "@/utils/opration/HashPassword";
-import { connect } from "mongoose";
+import Contect from "@/utils/Conect";
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 
 
 const authOption = {
   session: { strategy: "jwt" },
-  providers: [Credentials({
-    async authorize(credential){
-        const {email , password} = credential;
-        if(!email || !password){
-            throw new Error ("  لطفا تمامی فیلد هارا پر کنید ")
+  providers: [
+    Credentials({
+      async authorize(credentials) {
+        const { email, password } = credentials;
+        if (!email || !password) {
+          throw new Error("  لطفا تمامی فیلد هارا پر کنید ");
         }
-         await connect();
-         const user =await User.findOne({email})
-         if(!user){throw new Error( " کاربر ثبت نام نکرده است ")
-             return;
-         }
-          const verifyPassword =await VerifyPassword(password , user.password)
-         if(!verifyPassword){
-            throw new Error("  نام کاربری یا رمز عبور اشیباه است  ")
-            return
-         }
-         return {email}
-    }
-  })],
+        await Contect();
+        const user = await User.findOne({ email });
+        if (!user) {
+          throw new Error(" کاربر ثبت نام نکرده است ");
+      
+        }
+        const verifyPassword = await VerifyPassword(password, user.password);
+        if (!verifyPassword) {
+          throw new Error("  نام کاربری یا رمز عبور اشیباه است  ");
+         console.log("  نام کاربری یا رمز عبور اشیباه است  ");
+         
+        }
+        return {
+          id: user._id.toString(),
+          email: user.email,
+        };
+      },
+    }),
+  ],
 };
 
 

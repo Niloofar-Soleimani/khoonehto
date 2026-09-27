@@ -17,6 +17,7 @@ function Header() {
             width={80}
             height={50}
             className={styles.logo}
+            alt="logo  خانه تو"
           />
         </div>
         <Link href="/">صفحه اصلی</Link>
@@ -31,7 +32,7 @@ function Header() {
 
 
           )} */}
-          <Link href="/signup">ورود</Link> <span> | </span>
+          <Link href="/signin">ورود</Link> <span> | </span>
           <Link href="/account">حساب کاربری</Link>
         </div>
         <button

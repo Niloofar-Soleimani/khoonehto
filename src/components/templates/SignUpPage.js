@@ -33,7 +33,7 @@ toast.success(data.message)
 router.push("signin")
       }else{
 toast.error(data.message);
- console.log(data.message);
+
  
       }
 

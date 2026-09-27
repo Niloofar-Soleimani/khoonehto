@@ -8,6 +8,7 @@ async function Contect() {
   try {
     await mongoose.connect(process.env.URL);
     console.log("connected to DB");
+    console.log("URL exists:", !!process.env.URL);
   } catch (error) {
     console.error("MongoDB connection error:", error);
     throw error;
