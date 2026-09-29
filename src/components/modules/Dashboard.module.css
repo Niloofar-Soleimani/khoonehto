@@ -1,0 +1,137 @@
+
+
+.container {
+ display: flex;
+}
+
+.container h3 {
+    color: rgb(38, 28, 79);
+     margin-bottom: 10px;
+}
+ .right{
+  
+    width: 45%;
+ }
+.info {
+    width:100%;
+    /* border: 3px solid rgb(30, 22, 147); */
+    border-radius: 10px;
+    padding: 30px 30px;
+     gap: 10px;
+         background: rgb(233, 234, 234);
+         
+}
+
+.info div{
+    padding: 10px;
+    background: white;
+    display: flex;
+   height: 90px;
+    
+      flex-flow: row;
+ gap: 10px;
+ 
+  justify-content: space-between;
+
+    align-items: flex-start;
+     color: black;
+      margin-top: 20px;
+     
+    
+}
+ .info div span{
+    height: 100%;
+     display:  flex;
+      align-items: center;
+      justify-content: center;
+
+gap: 10px;    }
+ .info div p{
+    height: 100%;
+     display:  flex;
+      align-items: center;
+      justify-content: center;
+
+   }
+
+
+.illustration {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  animation: floating 4s ease-in-out infinite;
+}
+
+.homeImage {
+  width: 100%;
+
+  max-width: 520px;
+  height: auto;
+  object-fit: contain;
+
+  filter: drop-shadow(0 20px 30px rgba(30, 22, 147, 0.18));
+
+  animation: softGlow 4s ease-in-out infinite;
+}
+
+
+/* حرکت شناور */
+
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+
+/* نور خیلی ظریف */
+
+@keyframes softGlow {
+  0% {
+    filter: drop-shadow(
+      0 15px 25px rgba(30, 22, 147, 0.12)
+    );
+  }
+
+  50% {
+    filter: drop-shadow(
+      0 25px 40px rgba(30, 22, 147, 0.25)
+    );
+  }
+
+  100% {
+    filter: drop-shadow(
+      0 15px 25px rgba(30, 22, 147, 0.12)
+    );
+  }
+}
+
+
+
+
+@media (max-width: 768px) {
+
+.right{
+    width: 100%;
+}
+.info {
+    width:100%;
+    border: 3px solid rgb(30, 22, 147);
+    border-radius: 10px;
+    padding: 20px 30px;
+     gap: 50px;
+}
+.illustration{
+    display: none;
+}
+}

@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import localFont from "next/font/local"
 import Layout from "@/components/Layout/Layout";
+import NextProvider from "@/provider/NextProvider";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -12,7 +13,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 const alfabetFont = localFont({
-  src:"../../public/fonts/Far.Alphabet.ttf"
+  src:"../../public/fonts/Iranian Sans.ttf"
 })
 export const metadata = {
   title: "Create Next App",
@@ -23,7 +24,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={` ${alfabetFont.className} h-full antialiased`}>
       <body className={`min-h-full flex flex-col ${alfabetFont.className} `}>
-        <Layout>{children}</Layout>
+        <NextProvider>
+          <Layout>{children}</Layout>
+        </NextProvider>
       </body>
     </html>
   );

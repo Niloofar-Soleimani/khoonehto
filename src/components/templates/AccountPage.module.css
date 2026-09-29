@@ -1,0 +1,213 @@
+
+.container {
+  margin: 30px auto;
+  display: flex;
+  max-width: 1500px;
+}
+
+/* Sidebar */
+
+.sidebar {
+  width: 250px;
+  min-height: 450px;
+  padding: 25px 18px;
+
+  background: rgb(28, 42, 123);
+
+  border-radius: 16px;
+
+  display: flex;
+  flex-direction: column;
+
+  direction: rtl;
+
+  box-shadow: 0 10px 30px rgba(28, 42, 123, 0.15);
+}
+
+/* Profile */
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 10px;
+  margin-bottom: 30px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 20px;
+}
+
+.avatar {
+  width: 55px;
+  height: 55px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  font-size: 32px;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+
+  color: white;
+}
+
+.profileInfo span {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.profileInfo small {
+  margin-top: 5px;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  font-size: 12px;
+}
+
+/* Menu */
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 13px 15px;
+
+  border-radius: 10px;
+
+  color: rgba(255, 255, 255, 0.8);
+
+  text-decoration: none;
+
+  transition: all 0.2s ease;
+}
+
+.menuItem svg {
+  font-size: 18px;
+}
+
+.menuItem:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+
+  transform: translateX(-3px);
+}
+
+/* Logout */
+
+.logout {
+  margin-top: auto;
+
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 13px 15px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  color: white;
+
+  font-family: inherit;
+  font-size: 14px;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.logout:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Main */
+
+.main {
+  flex: 1;
+
+  margin-right: 40px;
+}
+
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    margin: 15px auto;
+    padding: 0 15px;
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+    padding: 15px;
+    border-radius: 14px;
+  }
+
+  .profile {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+  }
+
+  .menu {
+    flex-direction: row;
+    gap: 8px;
+    overflow-x: auto;
+  }
+
+  .menuItem {
+    flex: 1;
+    min-width: 110px;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px 8px;
+    font-size: 12px;
+  }
+
+  .menuItem:hover {
+    transform: none;
+  }
+
+  .menuItem svg {
+    font-size: 20px;
+  }
+
+  .logout {
+    margin-top: 15px;
+    justify-content: center;
+  }
+
+  .main {
+    width: 100%;
+    margin-right: 0;
+    margin-top: 20px;
+  }
+}

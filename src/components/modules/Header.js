@@ -3,18 +3,20 @@ import React, { useState } from "react";
 import styles from "@/components/modules/Header.module.css";
 import Link from "next/link";
 import Image from "next/image";
-// import { useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
+
 function Header() {
      const [menuOpen,setMenuOpen]=useState(false)
-//   const { data } = useSession();
+ const {data}=useSession()
 
+ 
   return (
     <div className={styles.container}>
       <div className={styles.right}>
         <div className={styles.logo}>
           <Image
-            src="/pictures/logo.png"
-            width={80}
+            src="/pictures/logo-removebg-preview.png"
+            width={100}
             height={50}
             className={styles.logo}
             alt="logo  خانه تو"
@@ -25,15 +27,11 @@ function Header() {
       </div>
       <div className={styles.left}>
         <div className={styles.login}>
-          {/* {!data ? (
-            <Link href="/signin">ورود</Link>
-          ) : (
-          <Link href="/account">حساب کاربری</Link>  
-
-
-          )} */}
-          <Link href="/signin">ورود</Link> <span> | </span>
-          <Link href="/account">حساب کاربری</Link>
+      
+          { !data ? (
+            <Link href="/signin"> ورود</Link>
+          ) : <Link href="/account">  حساب کاربری شما </Link>}
+        
         </div>
         <button
           className={styles.menuButton}

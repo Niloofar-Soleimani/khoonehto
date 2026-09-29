@@ -1,0 +1,15 @@
+
+
+.container p {
+    color: rgb(10, 12, 35);
+     font-weight: bold;
+     margin-top: 30px;
+     margin-bottom: 20px;
+}
+
+.container input {
+    height:40px;
+     color: black;
+    font-weight: bold;
+    border: 2px solid rgb(35, 29, 119);
+}
