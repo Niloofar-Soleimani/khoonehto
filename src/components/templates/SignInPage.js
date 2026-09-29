@@ -71,7 +71,7 @@ const res = await signIn("credentials", {
       <div className={styles.image}>
         <Image
           src="/pictures/signIn.jpg"
-          width="300"
+          width="320"
           height="150"
           alt="signin  خانه"
         />

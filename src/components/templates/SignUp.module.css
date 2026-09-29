@@ -81,3 +81,68 @@
     color: black;
   }
 }
+
+
+@media (max-width: 768px) {
+
+.container {
+    display: flex;
+     flex-flow: column;
+    align-items: stretch;
+    width: 80%;
+    margin: 150 auto;
+        box-shadow: 0px 0px 15px rgb(33, 33, 34);
+          border-radius: 10px;
+   
+}
+
+.container form {
+  border: 2px solid rgb(131, 132, 194);
+  border-left: none;
+  border-radius: 10px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+font-weight: bold;
+  position: relative;
+  overflow: hidden;
+         border-radius: 10px;
+  background: white;
+}
+
+
+.container form::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: url("/pictures/signIn.jpg");
+  background-size: cover;
+  background-position: center;
+
+  opacity: 0.3;
+
+  z-index: 0;
+}
+
+
+.container form > * {
+  position: relative;
+  z-index: 1;
+}
+.image img {
+  
+
+    display: none;
+}
+
+
+}
