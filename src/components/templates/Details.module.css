@@ -1,0 +1,213 @@
+
+.container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 32px;
+  align-items: start;
+
+  width: 100%;
+  max-width: 1400px;
+  margin: 40px auto;
+  padding: 30px;
+
+  box-sizing: border-box;
+  direction: rtl;
+  background-color: #ffffff;
+  border: 1px solid #e8eaf0;
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(20, 30, 60, 0.06);
+}
+
+/* بخش اصلی اطلاعات آگهی */
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
+}
+
+.main > div {
+  padding: 18px 0;
+  border-bottom: 1px solid #edf0f5;
+}
+
+.main > div:last-child {
+  border-bottom: none;
+}
+
+.container h3 {
+  margin: 0 0 12px;
+  color: #291f98;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.8;
+}
+
+.container span {
+  display: inline-block;
+  max-width: 100%;
+  margin: 4px 0 4px 6px;
+  padding: 7px 12px;
+
+  color: #41465a;
+ 
+  border-radius: 8px;
+
+  font-size: 14px;
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+}
+
+/* توضیحات آگهی */
+
+.main > div:nth-child(2) span {
+  display: block;
+  padding: 14px;
+  line-height: 2.2;
+
+}
+
+/* بخش امکانات و قوانین */
+
+.main > div:nth-child(6) span,
+.main > div:nth-child(7) span {
+  color: #291f98;
+  background-color: #f0efff;
+  border-color: #e3e0ff;
+}
+
+/* سایدبار اطلاعات تماس و ملک */
+
+.sidebar {
+  position: sticky;
+  top: 100px;
+
+  padding: 22px;
+  background: linear-gradient(145deg, #3125a4, #21186f);
+  border-radius: 14px;
+  color: #ffffff;
+  box-shadow: 0 8px 22px rgba(41, 31, 152, 0.15);
+}
+
+.sidebar > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 17px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.sidebar > div:first-child {
+  padding-top: 0;
+}
+
+.sidebar > div:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.sidebar > div > span:first-child {
+  margin: 0;
+  padding: 0;
+  color: #d9d6ff;
+  background: transparent;
+  border: none;
+  font-size: 13px;
+}
+
+.sidebar > div > span:last-child {
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+  background: transparent;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+/* تبلت */
+
+@media (max-width: 1000px) {
+  .container {
+    grid-template-columns: minmax(0, 1fr) 260px;
+    gap: 22px;
+    padding: 24px;
+  }
+
+  .sidebar {
+    padding: 18px;
+  }
+}
+
+/* موبایل */
+
+@media (max-width: 700px) {
+  .container {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    margin: 20px auto;
+    padding: 18px;
+    border-radius: 14px;
+  }
+
+  .main {
+    order: 1;
+  }
+
+  .sidebar {
+    position: static;
+    order: 0;
+    padding: 18px;
+  }
+
+  .sidebar > div {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+    align-items: center;
+    gap: 12px;
+    padding: 14px 0;
+  }
+
+  .sidebar > div > span:last-child {
+    text-align: left;
+  }
+
+  .container h3 {
+    font-size: 15px;
+  }
+
+  .container span {
+    font-size: 13px;
+  }
+
+  .main > div {
+    padding: 16px 0;
+  }
+}
+
+/* موبایل کوچک */
+
+@media (max-width: 380px) {
+  .container {
+    margin: 14px auto;
+    padding: 13px;
+    gap: 16px;
+  }
+
+  .sidebar {
+    padding: 14px;
+  }
+
+  .sidebar > div {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .sidebar > div > span:last-child {
+    text-align: right;
+  }
+}
+

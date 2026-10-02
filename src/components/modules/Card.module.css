@@ -19,7 +19,23 @@
     box-shadow 0.25s ease,
     border-color 0.25s ease;
 }
-
+.details{
+  background: #3e0f9d;
+  display: flex;
+   border-radius: 10px;
+  font-size: clamp(0.5rem,1vw,1rem);
+  min-height: 40px;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  color: rgb(255, 255, 255);
+  gap: 10px;
+  width:fit-content;
+  &:hover{
+    background: rgb(40, 61, 195);
+    transition: 300ms;
+  }
+}
 .container:hover {
   transform: translateY(-4px);
   border-color: #c4d2f5;
@@ -185,6 +201,7 @@
 
   .admin a,
   .admin > div {
+    flex: 1;
     flex: 1;
   }
 }

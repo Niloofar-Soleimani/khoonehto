@@ -9,27 +9,24 @@ import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 import React from 'react'
 
-export default function Card({_id , title ,location , price}) {
-     const router =useRouter()
-    const deleteHandler = async ()=>{
-     const res= await fetch(`/api/advertising/${_id}` , {
-        method : "DELETE" ,
-     })
- 
-       console.log("response" , res);
-       console.log(res.status);
-       
-       
-          if (res.status == 200) {
-            toast.success("  اگهی با موفقیت حذف شد ");
-         
-            router.refresh();
-          }
-    }
-     const publishHandler=()=>{
+export default function Card({ _id, title, location, price, operation = true }) {
+  const router = useRouter();
+  const deleteHandler = async () => {
+    const res = await fetch(`/api/advertising/${_id}`, {
+      method: "DELETE",
+    });
 
-     }
-     
+    console.log("response", res);
+    console.log(res.status);
+
+    if (res.status == 200) {
+      toast.success("  اگهی با موفقیت حذف شد ");
+
+      router.refresh();
+    }
+  };
+  const publishHandler = () => {};
+
   return (
     <div className={styles.container}>
       <div>
@@ -37,27 +34,31 @@ export default function Card({_id , title ,location , price}) {
         <p>{location}</p>
         <p>{sp(price)} تومان</p>
       </div>
+      {operation ? (
+        <div className={styles.btn}>
+          <Link href={`/advertising/${_id}`}>
+            <div>
+              <FaEye />
+            </div>
+          </Link>
 
-      <div className={styles.btn}>
-        <Link href={`/advertising/${_id}`}>
-          <div>
-            <FaEye />
+          <Link href={`/account/edit/${_id}`}>
+            <div>
+              <MdEdit />
+            </div>
+          </Link>
+
+          <div onClick={deleteHandler}>
+            <MdDelete />
           </div>
-        </Link>
-
-        <Link href={`/account/edit/${_id}`}>
-          <div>
-            <MdEdit />
-          </div>
-        </Link>
-
-        <div onClick={deleteHandler}>
-          <MdDelete />
         </div>
-      </div>
+      ) : (
+        <Link href={`/advertising/${_id}`}>
+          <div className={styles.details}> جزییات آگهی </div>
+        </Link>
+      )}
 
-
-{/* 
+      {/* 
       <div className={styles.admin}>
         <Link href={`/advertising/${_id}`}>
           <div>مشاهده آگهی</div>

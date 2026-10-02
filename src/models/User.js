@@ -11,6 +11,10 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
+  role:{
+    type :String,
+    default: "USER"
+  },
   createDate: {
     type: Date,
     default: Date.now,

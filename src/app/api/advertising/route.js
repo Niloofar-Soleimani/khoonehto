@@ -125,13 +125,18 @@ export async function PATCH(req) {
 }
 
 
-  export async function POST(params) {
+  export async function GET() {
     
 
     try {
-      
+  await Contect();
+  const advertising = await Advertising.find({ published: false }).select(
+    "-userId"
+  );
+  return NextResponse.json({status : 200 , data : advertising})
+     
     } catch (error) {
       console.log(error);
-      
+      return NextResponse.json({status : 500 , message: " server error "})
     }
   }
