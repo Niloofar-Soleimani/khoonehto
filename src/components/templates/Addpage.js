@@ -1,14 +1,17 @@
 
 "use client";
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from "@/components/templates/Addpage.module.css"
 import TextInput from '../modules/TextInput';
 import RadioItem from '../modules/RadioItem';
 import OptionsItem from '../modules/OptionsItem';
 import toast, { Toaster } from 'react-hot-toast';
 import CustomDatePicker from '../modules/CustomDatePicker';
-export default function Addpage() {
+import { useRouter } from 'next/navigation';
+export default function Addpage({advertisingData}) {
+const router =useRouter()
+    
       const [data, setData] = useState({
         title: "",
        
@@ -35,7 +38,8 @@ export default function Addpage() {
   
    if (result.status == 201) {
      toast.success(result.message);
-     
+    //  router.push("/account/my-advertising")
+    //  router.refresh()
    }
   setData({
     title: "",
@@ -50,10 +54,49 @@ export default function Addpage() {
     amenities: [],
   });
        }
+ useEffect(() => {
+   if (advertisingData) {
+     setData({
+       title: advertisingData.title || "",
+       discriotion: advertisingData.discriotion || "",
+       phone: advertisingData.phone || "",
+       price: advertisingData.price || "",
+       category: advertisingData.category || "villa",
+       constractionDate: advertisingData.constractionDate
+         ? new Date(advertisingData.constractionDate)
+         : new Date(),
+       rules: advertisingData.rules || [],
+       location: advertisingData.location || "",
+       realSatet: advertisingData.realSatet || "",
+       amenities: advertisingData.amenities || [],
+     });
+   }
+ }, [advertisingData]);
+
+       const EditHandler= async(e)=>{
+            e.preventDefault();
+             const payload ={...data , _id : advertisingData?._id}
+              console.log("payload",payload);
+              
+  const res = await fetch("/api/advertising", {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+ 
+   if (res.status == 200) {
+     toast.success( "  اگهی با موفقیت ویرایش شد " );
+       router.push("/account/my-advertising");
+       router.refresh();
+   }
+       }
   return (
     <div className={styles.container}>
-      <h3> ثبت آگهی </h3>
-      <form onSubmit={fromHandler} >
+      {advertisingData ? <h3> ویرایش آگهی </h3> : <h3> ثبت آگهی </h3>}
+
+      <form onSubmit={advertisingData ? EditHandler :fromHandler}>
         <div className={styles.fields}>
           <TextInput
             title="  عنوان آگهی "
@@ -125,12 +168,18 @@ export default function Addpage() {
           <h4> قوانین </h4>
           <OptionsItem name="rules" data={data} setData={setData} />
         </div>
-        <CustomDatePicker data={data} setData={setData}/>
-        <button type="submit" className={styles.add}>
-          ثبت آگهی
-        </button>
+        <CustomDatePicker data={data} setData={setData} />
+        {advertisingData ? (
+          <button type="submit" className={styles.add}>
+            ویرایش آگهی
+          </button>
+        ) : (
+          <button type="submit" className={styles.add}>
+            ثبت آگهی
+          </button>
+        )}
       </form>
-     <Toaster/>
+      <Toaster />
     </div>
   );
 }

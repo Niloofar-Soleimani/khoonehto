@@ -123,3 +123,15 @@ export async function PATCH(req) {
     return NextResponse.json({ status: 500, message: "server error" });
   }
 }
+
+
+  export async function POST(params) {
+    
+
+    try {
+      
+    } catch (error) {
+      console.log(error);
+      
+    }
+  }

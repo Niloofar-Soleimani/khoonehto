@@ -1,0 +1,70 @@
+'use client';
+import styles from "@/components/modules/Card.module.css"
+import { sp } from "@/utils/opration/Number";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import toast, { Toaster } from "react-hot-toast";
+import { FaEye } from "react-icons/fa";
+import { MdEdit } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
+import React from 'react'
+
+export default function Card({_id , title ,location , price}) {
+     const router =useRouter()
+    const deleteHandler = async ()=>{
+     const res= await fetch(`/api/advertising/${_id}` , {
+        method : "DELETE" ,
+     })
+ 
+       console.log("response" , res);
+       console.log(res.status);
+       
+       
+          if (res.status == 200) {
+            toast.success("  اگهی با موفقیت حذف شد ");
+         
+            router.refresh();
+          }
+    }
+     const publishHandler=()=>{
+
+     }
+     
+  return (
+    <div className={styles.container}>
+      <div>
+        <p>{title}</p>
+        <p>{location}</p>
+        <p>{sp(price)} تومان</p>
+      </div>
+
+      <div className={styles.btn}>
+        <Link href={`/advertising/${_id}`}>
+          <div>
+            <FaEye />
+          </div>
+        </Link>
+
+        <Link href={`/account/edit/${_id}`}>
+          <div>
+            <MdEdit />
+          </div>
+        </Link>
+
+        <div onClick={deleteHandler}>
+          <MdDelete />
+        </div>
+      </div>
+
+
+{/* 
+      <div className={styles.admin}>
+        <Link href={`/advertising/${_id}`}>
+          <div>مشاهده آگهی</div>
+        </Link>
+
+        <div onClick={publishHandler}>انتشار آگهی</div>
+      </div> */}
+    </div>
+  );
+}

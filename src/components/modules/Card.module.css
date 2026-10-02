@@ -1,0 +1,231 @@
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  width: 100%;
+  min-width: 0;
+  padding: 20px;
+
+  background: #ffffff;
+  border: 1px solid #e4e9f5;
+  border-radius: 18px;
+
+  box-shadow: 0 4px 16px rgba(30, 50, 100, 0.06);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.container:hover {
+  transform: translateY(-4px);
+  border-color: #c4d2f5;
+  box-shadow: 0 12px 28px rgba(30, 50, 100, 0.12);
+}
+
+/* اطلاعات آگهی */
+.container > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.container p {
+  margin: 0;
+  padding: 0;
+  overflow-wrap: anywhere;
+
+  color: #263451;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.container p:first-child {
+  color: #172554;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* دکمه‌های آیکونی */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  padding-top: 14px;
+  border-top: 1px solid #edf0f7;
+}
+
+.btn a {
+  text-decoration: none;
+}
+
+.btn > a > div,
+.btn > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  margin: 0;
+
+  color: #ffffff;
+  background: #344db5;
+  border: 1px solid transparent;
+  border-radius: 12px;
+
+  font-size: 19px;
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.btn > a:first-child > div {
+  background: #eaf2ff;
+  color: #2457b8;
+}
+
+.btn > a:nth-child(2) > div {
+  background: #f1edff;
+  color: #7043c5;
+}
+
+.btn > div {
+  background: #fff0f0;
+  color: #d14343;
+}
+
+.btn > a > div:hover,
+.btn > div:hover {
+  transform: translateY(-2px);
+}
+
+.btn > a:first-child > div:hover {
+  background: #2457b8;
+  color: #ffffff;
+}
+
+.btn > a:nth-child(2) > div:hover {
+  background: #7043c5;
+  color: #ffffff;
+}
+
+.btn > div:hover {
+  background: #d14343;
+  color: #ffffff;
+}
+
+/* دکمه‌های پایین کارت */
+.admin {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.admin a {
+  text-decoration: none;
+}
+
+.admin a > div,
+.admin > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 42px;
+  padding: 10px 14px;
+
+  color: #ffffff;
+  background: #293f9e;
+  border-radius: 10px;
+
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.admin a > div:hover {
+  background: #1d2e78;
+}
+
+.admin > div {
+  color: #246448;
+  background: #e6f6ed;
+  border: 1px solid #c7ead6;
+}
+
+.admin > div:hover {
+  background: #c9efda;
+}
+
+/* تبلت */
+@media (min-width: 600px) {
+  .container {
+    padding: 22px;
+  }
+
+  .admin {
+    flex-direction: row;
+  }
+
+  .admin a,
+  .admin > div {
+    flex: 1;
+  }
+}
+
+/* موبایل */
+@media (max-width: 599px) {
+  .container {
+    padding: 16px;
+    border-radius: 14px;
+    gap: 14px;
+  }
+
+  .container p:first-child {
+    font-size: 16px;
+  }
+
+  .btn > a > div,
+  .btn > div {
+    width: 40px;
+    height: 40px;
+  }
+
+  .admin a > div,
+  .admin > div {
+    min-height: 44px;
+  }
+}
+
+/* کاهش انیمیشن برای افرادی که این گزینه را فعال کرده‌اند */
+@media (prefers-reduced-motion: reduce) {
+  .container,
+  .btn > a > div,
+  .btn > div,
+  .admin a > div,
+  .admin > div {
+    transition: none;
+  }
+
+  .container:hover,
+  .btn > a > div:hover,
+  .btn > div:hover {
+    transform: none;
+  }
+}
