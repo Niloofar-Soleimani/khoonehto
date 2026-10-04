@@ -1,0 +1,16 @@
+
+
+.container {
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+ text-align: center;
+}
+
+.container span {
+    margin-right: 35%;
+    padding: 3px 10px;
+    border-radius: 7px;
+  font-weight: bolder;
+    color: rgb(200, 48, 48);
+}

@@ -14,7 +14,7 @@ import {
 
 import styles from "@/components/templates/AccountPage.module.css";
 
-export default function SideBar() {
+export default function SideBar({role}) {
   const logoutHandler = async () => {
     await signOut({
       callbackUrl: "/signin",
@@ -30,8 +30,9 @@ export default function SideBar() {
         </div>
 
         <div className={styles.profileInfo}>
-          <span>حساب کاربری</span>
-          <small>کاربر خانه تو</small>
+          {role === "ADMIN" ? <span> ادمین </span> :    
+          <small>کاربر خانه تو</small>  }
+    
         </div>
       </div>
 
@@ -42,28 +43,25 @@ export default function SideBar() {
           <span>داشبورد</span>
         </Link>
 
-        <Link
-          href="/account/my-advertising"
-          className={styles.menuItem}
-        >
+        <Link href="/account/my-advertising" className={styles.menuItem}>
           <FaBuilding />
           <span>آگهی‌های من</span>
         </Link>
 
-        <Link
-          href="/account/add"
-          className={styles.menuItem}
-        >
+        <Link href="/account/add" className={styles.menuItem}>
           <FaPlus />
           <span>ثبت آگهی</span>
         </Link>
+        {role === "ADMIN" && (
+          <Link href="/account/admin" className={styles.menuItem}>
+            <FaPlus />
+            <span>تایید آگهی</span>
+          </Link>
+        )}
       </nav>
 
       {/* Logout */}
-      <button
-        className={styles.logout}
-        onClick={logoutHandler}
-      >
+      <button className={styles.logout} onClick={logoutHandler}>
         <FaRightFromBracket />
         <span>خروج از حساب</span>
       </button>

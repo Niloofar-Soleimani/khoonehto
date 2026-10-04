@@ -9,7 +9,7 @@ import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 import React from 'react'
 
-export default function Card({ _id, title, location, price, operation = true }) {
+export default function Card({ _id, title, location, price, operation = true ,role="USER" }) {
   const router = useRouter();
   const deleteHandler = async () => {
     const res = await fetch(`/api/advertising/${_id}`, {
@@ -34,38 +34,41 @@ export default function Card({ _id, title, location, price, operation = true }) 
         <p>{location}</p>
         <p>{sp(price)} تومان</p>
       </div>
-      {operation ? (
-        <div className={styles.btn}>
-          <Link href={`/advertising/${_id}`}>
-            <div>
-              <FaEye />
-            </div>
-          </Link>
 
-          <Link href={`/account/edit/${_id}`}>
-            <div>
-              <MdEdit />
-            </div>
-          </Link>
+      {role === "USER" ? (
+        operation ? (
+          <div className={styles.btn}>
+            <Link href={`/advertising/${_id}`}>
+              <div>
+                <FaEye />
+              </div>
+            </Link>
 
-          <div onClick={deleteHandler}>
-            <MdDelete />
+            <Link href={`/account/edit/${_id}`}>
+              <div>
+                <MdEdit />
+              </div>
+            </Link>
+
+            <div onClick={deleteHandler}>
+              <MdDelete />
+            </div>
           </div>
-        </div>
+        ) : (
+          <Link href={`/advertising/${_id}`}>
+            <div className={styles.details}> جزییات آگهی </div>
+          </Link>
+        )
       ) : (
-        <Link href={`/advertising/${_id}`}>
-          <div className={styles.details}> جزییات آگهی </div>
-        </Link>
+        <div className={styles.admin}>
+          <Link href={`/advertising/${_id}`}>
+            <div>مشاهده آگهی</div>
+          </Link>
+
+          <div onClick={publishHandler}>انتشار آگهی</div>
+          <div>حذف آگهی</div>
+        </div>
       )}
-
-      {/* 
-      <div className={styles.admin}>
-        <Link href={`/advertising/${_id}`}>
-          <div>مشاهده آگهی</div>
-        </Link>
-
-        <div onClick={publishHandler}>انتشار آگهی</div>
-      </div> */}
     </div>
   );
 }

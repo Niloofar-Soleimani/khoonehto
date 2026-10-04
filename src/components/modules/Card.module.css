@@ -3,9 +3,9 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-
-  width: 100%;
+  gap: 6px;
+margin: 20px;
+  width: 35%;
   min-width: 0;
   padding: 20px;
 
@@ -190,9 +190,10 @@
 }
 
 /* تبلت */
-@media (min-width: 600px) {
+@media (min-width: 900px) {
   .container {
     padding: 22px;
+
   }
 
   .admin {
@@ -212,6 +213,7 @@
     padding: 16px;
     border-radius: 14px;
     gap: 14px;
+    width: 100%;
   }
 
   .container p:first-child {
