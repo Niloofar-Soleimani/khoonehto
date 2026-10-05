@@ -6,6 +6,7 @@
   margin: 0 auto;
   padding: 40px 30px 60px;
   box-sizing: border-box;
+
 }
 
 /* ---------------- FILTER ---------------- */
@@ -114,7 +115,7 @@
 
 /* ---------------- MOBILE ---------------- */
 
-@media (max-width: 700px) {
+@media (max-width: 1000px) {
   .container {
     padding: 25px 16px 40px;
   }

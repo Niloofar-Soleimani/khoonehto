@@ -10,6 +10,7 @@ import {
   FaBuilding,
   FaPlus,
   FaRightFromBracket,
+  FaRegSquareCheck,
 } from "react-icons/fa6";
 
 import styles from "@/components/templates/AccountPage.module.css";
@@ -30,9 +31,11 @@ export default function SideBar({role}) {
         </div>
 
         <div className={styles.profileInfo}>
-          {role === "ADMIN" ? <span> ادمین </span> :    
-          <small>کاربر خانه تو</small>  }
-    
+          {role === "ADMIN" ? (
+            <span> ادمین </span>
+          ) : (
+            <small>کاربر خانه تو</small>
+          )}
         </div>
       </div>
 
@@ -54,7 +57,7 @@ export default function SideBar({role}) {
         </Link>
         {role === "ADMIN" && (
           <Link href="/account/admin" className={styles.menuItem}>
-            <FaPlus />
+            <FaRegSquareCheck />
             <span>تایید آگهی</span>
           </Link>
         )}

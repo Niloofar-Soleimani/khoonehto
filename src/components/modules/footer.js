@@ -15,7 +15,7 @@ function Footer() {
             <Link href="/account/add">ثبت آگهی</Link>
           </li>
           <li>
-            <Link href="/about-us">معرفی سایت</Link>
+            <Link href="/aboutUs">معرفی سایت</Link>
           </li>
         </ul>
       </div>

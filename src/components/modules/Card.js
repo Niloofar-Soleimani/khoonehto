@@ -25,7 +25,22 @@ export default function Card({ _id, title, location, price, operation = true ,ro
       router.refresh();
     }
   };
-  const publishHandler = () => {};
+  const publishHandler =async () => {
+const res = await fetch(`/api/admin/${_id}`, {
+  method: "PATCH",
+});
+
+console.log("response", res);
+console.log(res.status);
+
+if (res.status == 200) {
+  toast.success("  اگهی منتشر شد ");
+
+  router.refresh();
+}
+
+
+  };
 
   return (
     <div className={styles.container}>
@@ -66,9 +81,10 @@ export default function Card({ _id, title, location, price, operation = true ,ro
           </Link>
 
           <div onClick={publishHandler}>انتشار آگهی</div>
-          <div>حذف آگهی</div>
+          <div onClick={deleteHandler}>حذف آگهی</div>
         </div>
       )}
+      {/* <Toaster/> */}
     </div>
   );
 }

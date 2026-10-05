@@ -3,6 +3,7 @@
 
 import styles from '@/components/templates/Admin.module.css'
 import Card from '../modules/Card';
+import { Toaster } from 'react-hot-toast';
 
 export default function AdminPage({advertisingData}) {
    console.log(advertisingData);
@@ -23,6 +24,7 @@ export default function AdminPage({advertisingData}) {
           />
         ))
       )}
+      <Toaster/>
     </div>
   );
 }

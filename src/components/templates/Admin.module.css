@@ -3,8 +3,10 @@
 .container {
     width:100%;
     display: flex;
-    flex-wrap: wrap;
+  padding-left: 50px;
+  flex-flow: row wrap;
  text-align: center;
+
 }
 
 .container span {
@@ -14,3 +16,12 @@
   font-weight: bolder;
     color: rgb(200, 48, 48);
 }
+
+
+@media (max-width: 1000px) {
+  .container {
+ flex-flow: column;
+    gap: 18px;
+  }
+}
+

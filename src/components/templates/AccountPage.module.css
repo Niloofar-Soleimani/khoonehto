@@ -156,7 +156,7 @@
    Responsive
 ========================= */
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   .container {
     width: 100%;
     margin: 15px auto;
@@ -169,6 +169,7 @@
     min-height: auto;
     padding: 15px;
     border-radius: 14px;
+    
   }
 
   .profile {
