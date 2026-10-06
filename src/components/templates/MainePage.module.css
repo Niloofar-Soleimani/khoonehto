@@ -1,40 +1,1676 @@
 
-.container {
-    padding-top: 20px;
-    
-}
-.container h1 {
-    
-    width: fit-content;
-    margin: auto;
-    color: rgb(5, 12, 93);
-      font-weight: bolder;
-      font-size: clamp(0.5rem ,3vw , 2rem);
+.page {
+  width: 100%;
+  overflow: hidden;
+  background: #f7f9fc;
+  color: #101828;
 }
 
-.slider {
-    padding: 50px 0px;
+/* =========================================================
+   REVEAL
+========================================================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
 }
 
-.swiper-slide image {
-    border: 2px solid red;
-    border-radius: 30px;
+.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.cities {
-    display: flex;
-    flex-wrap: wrap;
-    width: 500px;
-    margin: auto;
-    
+/* =========================================================
+   HERO
+========================================================= */
+
+
+/* =========================================
+   FULLSCREEN HERO VIDEO
+========================================= */
+
+.heroVideo {
+  position: relative;
+
+  width: 100%;
+  height: calc(100vh - 90px);
+
+  min-height: 600px;
+
+  overflow: hidden;
+
+  background: #05044e;
+}
+
+
+/* =========================================
+   VIDEO
+========================================= */
+
+.heroVideoElement {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  display: block;
+}
+
+
+/* =========================================
+   DARK OVERLAY
+========================================= */
+
+.heroVideo {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 90px);
+  min-height: 600px;
+  overflow: hidden;
+  background: #05044e;
+}
+
+/* Video */
+.heroVideoElement {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Dark layer روی ویدیو */
+.heroVideoOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(168, 168, 197, 0.75) 0%,
+      rgba(125, 123, 172, 0.45) 35%,
+      rgba(98, 97, 150, 0.15) 70%,
+      rgba(171, 171, 217, 0.0) 100%
+    );
+}
+
+/* Text container */
+.heroContent {
+  position: relative;
+  z-index: 2;
+
+  width: min(1200px, 100%);
+  height: 100%;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 0 60px;
+
+  direction: rtl;
+  text-align: right;
+
+  box-sizing: border-box;
+}
+
+/* Badge */
+.heroBadge {
+  width: fit-content;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 25px;
+  padding: 9px 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50px;
+
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.heroBadge span {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+  background: #00a6ff;
+
+  box-shadow: 0 0 12px rgba(0, 166, 255, 0.9);
+}
+
+/* Main title */
+.heroTitle {
+  max-width: 750px;
+
+  margin: 0;
+
+  color: white;
+
+  font-size: clamp(42px, 5vw, 76px);
+  line-height: 1.25;
+  font-weight: 400;
+
+  letter-spacing: -2px;
+
+  text-shadow: 0 5px 30px rgba(0, 0, 0, 0.25);
+}
+
+.heroTitle strong {
+  color: #f6f6f6;
+  font-weight: 800;
+}
+
+/* Description */
+.heroDescription {
+  max-width: 600px;
+
+  margin: 25px 0 0;
+
+  color: rgba(255, 255, 255, 0.88);
+
+  font-size: 17px;
+  line-height: 2;
+
+  text-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+/* ---------------- MOBILE ---------------- */
+
+@media screen and (max-width: 1000px) {
+
+  .heroVideo {
+    height: calc(100vh - 70px);
+    min-height: 600px;
+  }
+
+  .heroContent {
+    padding: 0 30px;
+  }
+
+  .heroTitle {
+    font-size: clamp(40px, 8vw, 60px);
+  }
+
+  .heroDescription {
+    max-width: 520px;
+    font-size: 15px;
+  }
+
+  .heroVideoOverlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(5, 4, 78, 0.78) 0%,
+        rgba(5, 4, 78, 0.45) 60%,
+        rgba(5, 4, 78, 0.2) 100%
+      );
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+
+  .heroVideo {
+    min-height: 600px;
+  }
+
+  .heroContent {
+    padding: 0 22px;
+    justify-content: center;
+  }
+
+  .heroBadge {
+    font-size: 11px;
+    padding: 8px 13px;
+  }
+
+  .heroTitle {
+    font-size: 42px;
+    line-height: 1.3;
+    letter-spacing: -1px;
+  }
+
+  .heroDescription {
+    max-width: 100%;
+    margin-top: 20px;
+
+    font-size: 14px;
+    line-height: 2;
+  }
+
+  .heroVideoElement {
+    object-position: center center;
+  }
+
+  .heroVideoOverlay {
+    background:
+         linear-gradient(
+        90deg,
+        rgba(159, 159, 170, 0.9) 0%,
+        rgba(44, 43, 102, 0.25) 100%
+      );
+  }
+}
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.categoriesSection,
+.featuredSection,
+.citiesSection {
+  padding: 130px 7%;
+}
+
+.sectionHeading {
+  max-width: 700px;
+  margin-bottom: 60px;
+}
+
+.sectionHeading > span {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: #438cff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.sectionHeading h2 {
+  margin: 0;
+  font-size: clamp(32px, 4vw, 58px);
+  line-height: 1.25;
+  font-weight: 400;
+}
+
+.sectionHeading h2 strong {
+  font-weight: 800;
+  color: #163f70;
+}
+
+.sectionHeading p {
+  max-width: 600px;
+  margin-top: 20px;
+  color: #667085;
+  line-height: 2;
+}
+
+/* =========================================================
+   CATEGORIES
+========================================================= */
+
+.categoriesSection {
+  background: #f7f9fc;
+}
+
+.categoryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.categoryCard {
+  position: relative;
+  min-height: 300px;
+  padding: 28px;
+  overflow: hidden;
+  border: 1px solid #e4eaf2;
+  border-radius: 24px;
+  background: white;
+  color: #101828;
+  text-decoration: none;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+}
+
+.categoryCard:hover {
+  transform: translateY(-12px);
+  border-color: #9dc4f8;
+  box-shadow: 0 25px 60px rgba(23, 63, 108, 0.12);
+}
+
+.categoryNumber {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  color: #dce5f0;
+  font-size: 12px;
+}
+
+.categoryIcon {
+  width: 65px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 35px;
+  border-radius: 18px;
+  background: #edf5ff;
+  color: #438cff;
+  font-size: 28px;
+}
+
+.categoryContent {
+  margin-top: 50px;
+}
+
+.categoryContent h3 {
+  margin: 0 0 10px;
+  font-size: 22px;
+}
+
+.categoryContent p {
+  margin: 0;
+  color: #667085;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.categoryArrow {
+  position: absolute;
+  bottom: 28px;
+  left: 28px;
+  color: #438cff;
+  font-size: 22px;
+  transition: transform 0.3s;
+}
+
+.categoryCard:hover .categoryArrow {
+  transform: translateX(-8px);
+}
+
+/* =========================================================
+   FEATURED
+========================================================= */
+
+.featuredSection {
+  background: white;
+}
+
+
+/* =========================================
+   PROPERTY SWIPER
+========================================= */
+
+.propertySwiper {
+  width: 100%;
+  position: relative;
+
+  padding: 60px 0 75px;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   SWIPER INSTANCE
+========================================= */
+
+.propertiesSwiper {
+  width: 100%;
+  padding-top: 35px;
+  padding-bottom: 55px;
+
+  overflow: visible !important;
+}
+
+
+/* =========================================
+   SWIPER SLIDE
+========================================= */
+
+.propertySlide {
+  width: 460px !important;
+  height: auto;
+
+  display: flex;
+  align-items: stretch;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   PROPERTY CARD
+========================================= */
+
+.propertyCard {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #ffffff;
+
+  border: 1px solid #e8edf3;
+  border-radius: 25px;
+
+  overflow: hidden;
+
+  color: #101828;
+  text-decoration: none;
+
+  box-shadow:
+    0 15px 40px rgba(16, 24, 40, 0.08);
+
+  transition:
+    box-shadow 0.4s ease,
+    transform 0.4s ease;
+}
+
+
+.propertyCard:hover {
+  box-shadow:
+    0 25px 60px rgba(5, 4, 78, 0.18);
+}
+
+
+/* =========================================
+   PROPERTY IMAGE
+========================================= */
+
+.propertyImage {
+  position: relative;
+
+  width: 100%;
+  height: 300px;
+
+  overflow: hidden;
+
+  flex-shrink: 0;
+}
+
+
+.propertyImage img {
+  object-fit: cover;
+
+  transition:
+    transform 0.7s ease;
+}
+
+
+.propertyCard:hover .propertyImage img {
+  transform: scale(1.08);
+}
+
+
+/* =========================================
+   IMAGE OVERLAY
+========================================= */
+
+.propertyOverlay {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: flex-start;
+
+  padding: 20px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(5, 4, 78, 0.5),
+      transparent 42%
+    );
+
+  z-index: 2;
+}
+
+
+.propertyOverlay > span:first-child {
+  padding: 7px 13px;
+
+  border-radius: 30px;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  color: #05044e;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+
+.propertyOverlay .propertyNumber {
+  padding: 0;
+
+  background: transparent;
+
+  color: white;
+
+  font-size: 16px;
+  font-weight: 700;
+}
+
+
+/* =========================================
+   PROPERTY INFO
+========================================= */
+
+.propertyInfo {
+  flex: 1;
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 15px;
+
+  min-height: 115px;
+
+  padding: 20px 23px;
+
+  direction: rtl;
+}
+
+
+.propertyInfo h3 {
+  margin: 0 0 9px;
+
+  color: #05044e;
+
+  font-size: 18px;
+  font-weight: 700;
+}
+
+
+.propertyInfo p {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  margin: 0;
+
+  color: #98a2b3;
+
+  font-size: 12px;
+}
+
+
+.propertyInfo p span {
+  color: #00a6ff;
+
+  font-size: 7px;
+}
+
+
+.propertyInfo strong {
+  color: #090979;
+
+  font-size: 12px;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   COVERFLOW ACTIVE SLIDE
+========================================= */
+
+.propertiesSwiper
+  :global(.swiper-slide-active)
+  .propertyCard {
+
+  box-shadow:
+    0 25px 60px rgba(5, 4, 78, 0.2);
+}
+
+
+/* =========================================
+   PAGINATION
+========================================= */
+
+.propertiesSwiper
+  :global(.swiper-pagination) {
+
+  bottom: 10px;
+}
+
+
+.propertiesSwiper
+  :global(.swiper-pagination-bullet) {
+
+  width: 7px;
+  height: 7px;
+
+  background: #05044e;
+
+  opacity: 0.25;
+
+  transition:
+    width 0.3s ease,
+    opacity 0.3s ease,
+    background 0.3s ease;
+}
+
+
+.propertiesSwiper
+  :global(.swiper-pagination-bullet-active) {
+
+  width: 25px;
+
+  border-radius: 10px;
+
+  background: #00a6ff;
+
+  opacity: 1;
+}
+
+
+/* =========================================
+   MORE PROPERTIES
+========================================= */
+
+.moreProperties {
+  display: flex;
+
+  justify-content: center;
+
+  margin-top: 35px;
+}
+
+
+.moreProperties a {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 14px 22px;
+
+  border: 1px solid #dce5f0;
+
+  border-radius: 50px;
+
+  color: #05044e;
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  transition:
+    border-color 0.3s ease,
+    color 0.3s ease,
+    background 0.3s ease;
+}
+
+
+.moreProperties a:hover {
+  border-color: #00a6ff;
+
+  background: rgba(0, 166, 255, 0.05);
+
+  color: #00a6ff;
+}
+
+
+.moreProperties span {
+  font-size: 20px;
+}
+
+/* =========================================================
+   STORY
+========================================================= */
+
+.storySection {
+  position: relative;
+  min-height: 700px;
+  padding: 100px 10%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 80px;
+  overflow: hidden;
+  background: #081b36;
+  color: white;
+}
+
+.storyBackground {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at 80% 50%,
+      rgba(61, 137, 255, 0.18),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(61, 137, 255, 0.1),
+      transparent 30%
+    );
+}
+
+.storyContent {
+  position: relative;
+  z-index: 2;
+  max-width: 550px;
+}
+
+.storyContent > span {
+  color: #69adff;
+  font-size: 13px;
+}
+
+.storyContent h2 {
+  margin: 20px 0;
+  font-size: clamp(40px, 5vw, 70px);
+  line-height: 1.2;
+  font-weight: 300;
+}
+
+.storyContent h2 strong {
+  font-weight: 800;
+  color: #68aaff;
+}
+
+.storyContent p {
+  max-width: 520px;
+  color: rgba(255, 255, 255, 0.58);
+  line-height: 2.2;
+}
+
+.storyButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 30px;
+  padding: 14px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50px;
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+.storyButton:hover {
+  background: #438cff;
+  border-color: #438cff;
+}
+
+.storyButton span {
+  font-size: 20px;
+}
+
+
+
+.scene {
+  position: relative;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+}
+
+.sceneGlow {
+  position: absolute;
+  width: 430px;
+  height: 430px;
+  border-radius: 50%;
+  background: rgba(55, 130, 255, 0.16);
+  filter: blur(70px);
+}
+
+.house3d {
+  position: relative;
+  width: 350px;
+  height: 310px;
+  transform-style: preserve-3d;
+  transform: rotateX(8deg) rotateY(-18deg);
+  animation: houseFloat 6s ease-in-out infinite;
+  z-index: 4;
+}
+
+.houseBody {
+  position: absolute;
+  left: 35px;
+  bottom: 35px;
+  width: 280px;
+  height: 190px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #e8f2ff, #a9c6e8);
+  box-shadow:
+    20px 30px 50px rgba(0, 0, 0, 0.25),
+    inset -10px -10px 30px rgba(0, 0, 0, 0.08);
+  transform: translateZ(25px);
+}
+
+.houseRoof {
+  position: absolute;
+  left: 15px;
+  top: 35px;
+  width: 320px;
+  height: 120px;
+  background: linear-gradient(135deg, #1d477c, #102c51);
+  clip-path: polygon(50% 0, 100% 70%, 100% 100%, 0 100%, 0 70%);
+  transform: translateZ(35px);
+  filter: drop-shadow(10px 15px 15px rgba(0, 0, 0, 0.3));
+}
+
+.houseSide {
+  position: absolute;
+  right: 5px;
+  bottom: 35px;
+  width: 55px;
+  height: 190px;
+  background: linear-gradient(90deg, #91afd0, #5d7da5);
+  transform-origin: left center;
+  transform: rotateY(55deg);
+}
+
+.window {
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  border: 7px solid #193b63;
+  background: linear-gradient(135deg, #79baff, #d5efff);
+  overflow: hidden;
+}
+
+.window::before,
+.window::after {
+  content: "";
+  position: absolute;
+  background: rgba(25, 59, 99, 0.7);
+}
+
+.window::before {
+  width: 5px;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.window::after {
+  width: 100%;
+  height: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.windowOne {
+  left: 45px;
+  top: 35px;
+}
+
+.windowTwo {
+  right: 40px;
+  top: 35px;
+}
+
+.door {
+  position: absolute;
+  left: 108px;
+  bottom: 0;
+  width: 65px;
+  height: 105px;
+  background: linear-gradient(135deg, #214d7d, #102e51);
+  border: 5px solid #173c66;
+}
+
+.doorHandle {
+  position: absolute;
+  right: 10px;
+  top: 53%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #d8eaff;
+}
+
+.garage {
+  position: absolute;
+  right: 7px;
+  bottom: 0;
+  width: 70px;
+  height: 75px;
+  border-radius: 4px 4px 0 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    #315f8e 0,
+    #315f8e 8px,
+    #1e456d 9px,
+    #1e456d 12px
+  );
+}
+
+.houseGround {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 350px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4c8a61, #204d35);
+  transform: rotateX(70deg) translateZ(-15px);
+}
+
+.garden {
+  position: absolute;
+  width: 60px;
+  height: 30px;
+  left: 35px;
+  top: 15px;
+  border-radius: 50%;
+  background: #67a878;
+}
+
+.path {
+  position: absolute;
+  width: 50px;
+  height: 100%;
+  left: 140px;
+  top: 0;
+  background: #d2b98d;
+  clip-path: polygon(40% 0, 60% 0, 100% 100%, 0 100%);
+}
+
+.houseShadow {
+  position: absolute;
+  width: 370px;
+  height: 80px;
+  bottom: 70px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.35);
+  filter: blur(20px);
+  animation: shadowMove 6s ease-in-out infinite;
+}
+
+.orbit {
+  position: absolute;
+  border: 1px solid rgba(109, 174, 255, 0.2);
+  border-radius: 50%;
+  transform-style: preserve-3d;
+}
+
+.orbitOne {
+  width: 480px;
+  height: 180px;
+  transform: rotateX(65deg) rotateZ(20deg);
+  animation: orbitMove 12s linear infinite;
+}
+
+.orbitTwo {
+  width: 550px;
+  height: 230px;
+  transform: rotateX(65deg) rotateZ(-20deg);
+  animation: orbitMove 18s linear infinite reverse;
+}
+
+.orbitThree {
+  width: 620px;
+  height: 280px;
+  transform: rotateX(65deg);
+  animation: orbitMove 22s linear infinite;
+}
+
+.floatingCard {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  animation: cardFloat 5s ease-in-out infinite;
+}
+
+.cardTop {
+  top: 100px;
+  right: 40px;
+}
+
+.cardBottom {
+  bottom: 120px;
+  left: 30px;
+  animation-delay: -2s;
+}
+
+.cardIcon,
+.locationIcon {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(85, 155, 255, 0.2);
+  color: #72b1ff;
+  font-size: 20px;
+}
+
+.floatingCard div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.floatingCard small {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 10px;
+}
+
+.floatingCard strong {
+  color: white;
+  font-size: 13px;
+}
+
+/* 
+.storyVisual {
+  position: relative;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.storyCircle {
+  position: absolute;
+  border: 1px solid rgba(98, 165, 255, 0.25);
+  border-radius: 50%;
+  animation: storyRotate 15s linear infinite;
+}
+
+.storyCircleOne {
+  width: 230px;
+  height: 230px;
+}
+
+.storyCircleTwo {
+  width: 350px;
+  height: 350px;
+  animation-duration: 20s;
+  animation-direction: reverse;
+}
+
+.storyCircleThree {
+  width: 470px;
+  height: 470px;
+  animation-duration: 28s;
+}
+
+.storyCenter {
+  position: relative;
+  z-index: 5;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  background: rgba(67, 140, 255, 0.1);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 80px rgba(67, 140, 255, 0.2);
+}
+
+.storyCenter span {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 13px;
+}
+
+.storyCenter strong {
+  color: #68aaff;
+  font-size: 35px;
+} */
+
+/* =========================================================
+   CITIES
+========================================================= */
+
+.citiesSection {
+  background: #f7f9fc;
+}
+
+.cityGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid #dfe6ef;
+  border-right: 1px solid #dfe6ef;
 }
 
 .city {
-    padding: 5px 15px;
-    width: 70px;
+  position: relative;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  padding: 30px;
+  border-left: 1px solid #dfe6ef;
+  border-bottom: 1px solid #dfe6ef;
+  color: #163f70;
+  text-decoration: none;
+  overflow: hidden;
+  transition: 0.4s;
+}
+
+.city:hover {
+  background: #163f70;
+  color: white;
+}
+
+.cityNumber {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  color: #aebdce;
+  font-size: 11px;
+}
+
+.city strong {
+  font-size: 27px;
+  font-weight: 500;
+}
+
+.cityArrow {
+  position: absolute;
+  left: 25px;
+  bottom: 20px;
+  font-size: 22px;
+  transition: 0.3s;
+}
+
+.city:hover .cityArrow {
+  transform: translate(5px, -5px);
+}
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta {
+  position: relative;
+  min-height: 500px;
+  padding: 100px 10%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 80% 50%,
+      rgba(66, 140, 255, 0.2),
+      transparent 35%
+    ),
+    linear-gradient(135deg, #071a38, #0b2b55);
+  color: white;
+}
+
+.ctaGlow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  right: -100px;
+  top: -100px;
+  border-radius: 50%;
+  background: rgba(62, 136, 255, 0.08);
+  filter: blur(60px);
+}
+
+.ctaContent {
+  position: relative;
+  z-index: 3;
+  max-width: 600px;
+}
+
+.ctaContent > span {
+  color: #69adff;
+  font-size: 13px;
+}
+
+.ctaContent h2 {
+  margin: 20px 0;
+  font-size: clamp(45px, 6vw, 80px);
+  line-height: 1.1;
+  font-weight: 300;
+}
+
+.ctaContent h2 strong {
+  color: #69adff;
+  font-weight: 800;
+}
+
+.ctaContent p {
+  max-width: 500px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 2;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 30px;
+  padding: 15px 25px;
+  border-radius: 50px;
+  background: #438cff;
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+.ctaButton:hover {
+  background: #65a4ff;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(67, 140, 255, 0.3);
+}
+
+.ctaButton span {
+  font-size: 20px;
+}
+
+.ctaShape {
+  position: absolute;
+  left: 65%;
+  top: 50%;
+  width: 400px;
+  height: 400px;
+  transform: translateY(-50%) rotate(20deg);
+}
+
+.ctaShape div {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(105, 173, 255, 0.18);
+  transform: rotate(45deg);
+}
+
+.ctaShape div:nth-child(2) {
+  transform: rotate(45deg) scale(0.7);
+}
+
+.ctaShape div:nth-child(3) {
+  transform: rotate(45deg) scale(0.4);
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes houseFloat {
+  0%,
+  100% {
+    transform: rotateX(8deg) rotateY(-18deg) translateY(0);
+  }
+
+  50% {
+    transform: rotateX(8deg) rotateY(-18deg) translateY(-18px);
+  }
+}
+
+@keyframes shadowMove {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+
+  50% {
+    transform: scale(0.8);
+    opacity: 0.2;
+  }
+}
+
+@keyframes orbitMove {
+  from {
+    transform: rotateX(65deg) rotateZ(0deg);
+  }
+
+  to {
+    transform: rotateX(65deg) rotateZ(360deg);
+  }
+}
+
+@keyframes cardFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes scrollLine {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0);
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
+}
+
+@keyframes storyRotate {
+  from {
+    transform: rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(180deg) scale(1.05);
+  }
+
+  to {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+/* =========================================================
+   RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 120px;
+  }
+
+  .heroContent {
+    max-width: 800px;
+    margin: auto;
     text-align: center;
-    background-color: rgb(206, 64, 64);
-    color: white;
-    margin: 20px 30px;
-    border-radius: 10px;
+  }
+
+  .heroBadge {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .heroDescription {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .searchBox {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .heroStats {
+    justify-content: center;
+  }
+
+  .scene {
+    min-height: 550px;
+  }
+
+  .categoryGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* .propertyGrid {
+    grid-template-columns: repeat(2, 1fr);
+  } */
+
+  .propertyCard:last-child {
+    grid-column: span 2;
+    max-width: calc(50% - 12px);
+    margin: auto;
+  }
+
+  .storySection {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .storyContent {
+    margin: auto;
+  }
+
+  .storyContent p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .storyVisual {
+    min-height: 450px;
+  }
+
+  .cityGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+  .hero {
+    min-height: auto;
+    padding: 110px 20px 80px;
+  }
+
+  .heroTitle {
+    font-size: 43px;
+    letter-spacing: -1px;
+  }
+
+  .heroDescription {
+    font-size: 14px;
+  }
+
+  .searchBox {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .searchInput {
+    min-height: 48px;
+  }
+
+  .searchButton {
+    width: 100%;
+  }
+
+  .heroStats {
+    gap: 25px;
+  }
+
+  .heroStats strong {
+    font-size: 17px;
+  }
+
+  .heroStats span {
+    font-size: 10px;
+  }
+
+  .scene {
+    min-height: 430px;
+    margin-top: 20px;
+    transform: scale(0.82);
+  }
+
+  .house3d {
+    transform: rotateX(8deg) rotateY(-18deg) scale(0.8);
+  }
+
+  .orbitOne {
+    width: 390px;
+  }
+
+  .orbitTwo {
+    width: 440px;
+  }
+
+  .orbitThree {
+    width: 490px;
+  }
+
+  .floatingCard {
+    transform: scale(0.8);
+  }
+
+  .cardTop {
+    right: -5px;
+    top: 60px;
+  }
+
+  .cardBottom {
+    left: -5px;
+    bottom: 80px;
+  }
+
+  .categoriesSection,
+  .featuredSection,
+  .citiesSection {
+    padding: 85px 20px;
+  }
+
+  .sectionHeading {
+    margin-bottom: 40px;
+  }
+
+  .sectionHeading h2 {
+    font-size: 35px;
+  }
+
+  .categoryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .categoryCard {
+    min-height: 270px;
+  }
+
+
+  .propertyCard:last-child {
+    grid-column: auto;
+    max-width: none;
+  }
+
+  .propertyImage {
+    height: 260px;
+  }
+
+  .propertyInfo {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .storySection {
+    padding: 90px 20px;
+  }
+
+  .storyContent h2 {
+    font-size: 45px;
+  }
+
+  .storyVisual {
+    height: 350px;
+    min-height: 350px;
+  }
+
+  .storyCircleOne {
+    width: 170px;
+    height: 170px;
+  }
+
+  .storyCircleTwo {
+    width: 260px;
+    height: 260px;
+  }
+
+  .storyCircleThree {
+    width: 350px;
+    height: 350px;
+  }
+
+  .storyCenter {
+    width: 120px;
+    height: 120px;
+  }
+
+  .cityGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .city {
+    min-height: 120px;
+  }
+
+  .cta {
+    min-height: 550px;
+    padding: 80px 25px;
+  }
+
+  .ctaContent h2 {
+    font-size: 52px;
+  }
+
+  .ctaShape {
+    left: 45%;
+    top: 65%;
+    transform: translateY(-50%) rotate(20deg) scale(0.65);
+  }
+
+  .scrollHint {
+    display: none;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .house3d,
+  .houseShadow,
+  .floatingCard,
+  .orbit,
+  .storyCircle,
+  .scrollHint span::after {
+    animation: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

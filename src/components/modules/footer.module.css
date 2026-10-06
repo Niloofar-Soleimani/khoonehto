@@ -14,10 +14,17 @@
 
 .right li {
     margin: 20px 0px;
+ 
+    &:hover{
+      font-size: 18px;
+      text-shadow: 1px 1px 10px rgb(185, 170, 170);
+ transition: all 500ms linear;
+    }
 }
 
 .left p {
     color: white;
+      margin: 30px 0px;
 }
 
 
@@ -32,5 +39,12 @@
 
   100% {
     background-position: 0% 50%;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    gap: 20px;
   }
 }

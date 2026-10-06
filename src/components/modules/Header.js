@@ -4,8 +4,10 @@ import styles from "@/components/modules/Header.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
+import { TiArrowSortedDown } from "react-icons/ti";
 
 function Header() {
+   const [advertisingOpen , setAdvertisingOpen]=useState(false)
      const [menuOpen,setMenuOpen]=useState(false)
  const {data}=useSession()
 
@@ -16,22 +18,45 @@ function Header() {
         <div className={styles.logo}>
           <Image
             src="/pictures/logo-removebg-preview.png"
-            width={100}
-            height={50}
+            width={200}
+            height={100}
             className={styles.logo}
             alt="logo  خانه تو"
           />
         </div>
-        <Link href="/">صفحه اصلی</Link>
-        <Link href="/advertising">آگهی ها</Link>
+        <Link href="/" className={styles.advertisingLink}>
+          صفحه اصلی
+        </Link>
+
+        <div className={styles.advertising} onMouseEnter={()=>setAdvertisingOpen(true)} onMouseLeave={()=>setAdvertisingOpen(false)}>
+          <Link href="/advertising" className={styles.advertisingLink}>
+            آگهی‌ها
+            <span className={styles.arrow}>
+              <TiArrowSortedDown />
+            </span>
+          </Link>
+          {advertisingOpen && (
+            <nav className={styles.dropdown}>
+              <Link href="/advertising?category=villa">ویلا</Link>
+
+              <Link href="/advertising?category=apartment">آپارتمان</Link>
+
+              <Link href="/advertising?category=office">اداری</Link>
+
+              <Link href="/advertising?category=store">تجاری</Link>
+            </nav>
+          )}
+        </div>
+
+        <Link href="/aboutUs"> درباره ما </Link>
       </div>
       <div className={styles.left}>
         <div className={styles.login}>
-      
-          { !data ? (
+          {!data ? (
             <Link href="/signin"> ورود</Link>
-          ) : <Link href="/account">  حساب کاربری شما </Link>}
-        
+          ) : (
+            <Link href="/account"> حساب کاربری شما </Link>
+          )}
         </div>
         <button
           className={styles.menuButton}

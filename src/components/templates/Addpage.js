@@ -34,12 +34,15 @@ const router =useRouter()
      },
      body: JSON.stringify(data),
    });
-   const result=await res.json()
-  
-   if (result.status == 201) {
-     toast.success(result.message);
-    //  router.push("/account/my-advertising")
-    //  router.refresh()
+  const result = await res.json();
+
+   console.log("res",res);
+   console.log("result",result);
+   
+   if (res.ok) {
+     toast.success(result.message || "آگهی با موفقیت ثبت شد");
+     //  router.push("/account/my-advertising")
+     //  router.refresh()
    }
   setData({
     title: "",
@@ -47,7 +50,7 @@ const router =useRouter()
     phone: "",
     price: "",
     category: "villa",
-    constructionDate: new Date(),
+    constractionDate: new Date(),
     rules: [],
     location: "",
     realSatet: "",

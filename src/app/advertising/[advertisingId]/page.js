@@ -11,3 +11,17 @@ export default async function Page({params}) {
   <DetailPage advertisingData={advertisingData}/>
   )
 }
+
+
+export const generateMetadata = async ({ params }) => {
+    await Contect();
+    const { advertisingId } = await params;
+    const advertisingData = await Advertising.findOne({ _id: advertisingId });
+    return {
+      title: advertisingData.title,
+      description: advertisingData.discriotion,
+      other :{
+        realstate : "  خانه تو  "
+      }
+    };
+};

@@ -1,164 +1,504 @@
-@media screen and (min-width: 1000px) {
+/* =========================================
+   HEADER
+========================================= */
+
+.container {
+  width: 100%;
+  position: relative;
+  z-index: 1000;
+  background: #05044e;
+  border-bottom: 1px solid rgba(0, 166, 255, 0.25);
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   DESKTOP
+========================================= */
+
+@media screen and (min-width: 1001px) {
+
   .container {
-    width: 100%;
-    height: 15vh;
+    height: 90px;
+    padding: 0 45px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    /* position: fixed;
-    top: 0;
-     */
-
-    background: linear-gradient(
-      211deg,
-      rgba(2, 0, 36, 1) 0%,
-      rgba(5, 4, 78, 1) 18%,
-      rgba(9, 9, 121, 1) 65%,
-      rgba(0, 166, 255, 1) 100%
-    );
-
-    padding: 20px 10px;
-
-    background-size: 200% 200%;
-    animation: gradientMoveHeader 8s ease infinite;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
   }
 
-  .logo {
 
-
-  }
+  /* ---------- RIGHT SIDE ---------- */
 
   .right {
-    width: 40%;
+    height: 100%;
     display: flex;
-    justify-content: space-around;
+    align-items: center;
+    gap: 8px;
+  }
+
+
+  /* ---------- LOGO ---------- */
+
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-left: 30px;
+  }
+
+  .logo img {
+    width: 150px;
+    height: 100px;
+    object-fit: contain;
+  }
+
+
+  /* ---------- MAIN LINKS ---------- */
+
+  .right > a,
+  .advertisingLink {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    height: 100%;
+
+    padding: 0 18px;
+
+    color: white;
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    transition:
+      color 0.25s ease,
+      background 0.25s ease;
+  }
+
+
+  .right > a::after,
+  .advertisingLink::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+    right: 18px;
+    left: 18px;
+
+    height: 2px;
+
+    background: #00a6ff;
+
+    transform: scaleX(0);
+    transform-origin: center;
+
+    transition: transform 0.25s ease;
+  }
+
+
+  .right > a:hover,
+  .advertisingLink:hover {
+    color: #00a6ff;
+  }
+
+
+  .right > a:hover::after,
+  .advertisingLink:hover::after {
+    transform: scaleX(1);
+  }
+
+
+  /* =========================================
+     ADVERTISING DROPDOWN
+  ========================================= */
+
+  .advertising {
+    position: relative;
+
+    height: 100%;
+
+    display: flex;
     align-items: center;
   }
 
-  .right a {
-    margin: 0 30px;
+
+  .advertisingLink {
+    gap: 7px;
+    cursor: pointer;
+  }
+
+
+  .arrow {
+    font-size: 13px;
+
+    transition: transform 0.3s ease;
+  }
+
+
+  .advertising:hover .arrow {
+    transform: rotate(180deg);
+  }
+
+
+  .dropdown {
+    position: absolute;
+
+    top: calc(100% + 10px);
+    right: 0;
+
+    width: 190px;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 8px;
+
+    background: #05044e;
+
+    border: 1px solid rgba(0, 166, 255, 0.25);
+
+    border-radius: 12px;
+
+    box-shadow:
+      0 15px 40px rgba(0, 0, 0, 0.35),
+      0 0 20px rgba(0, 166, 255, 0.08);
+
+    z-index: 2000;
+
+    animation: dropdownShow 0.2s ease;
+  }
+
+
+  .dropdown::before {
+    content: "";
+
+    position: absolute;
+
+    top: -6px;
+    right: 28px;
+
+    width: 12px;
+    height: 12px;
+
+    background: #05044e;
+
+    transform: rotate(45deg);
+
+    border-left: 1px solid rgba(0, 166, 255, 0.25);
+    border-top: 1px solid rgba(0, 166, 255, 0.25);
+  }
+
+
+  .dropdown a {
+    display: flex;
+    align-items: center;
+
+    padding: 11px 14px;
+
+    color: rgba(255, 255, 255, 0.9);
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    border-radius: 8px;
+
+    transition:
+      background 0.2s ease,
+      color 0.2s ease,
+      padding-right 0.2s ease;
+  }
+
+
+  .dropdown a:hover {
+    background: #090979;
+
+    color: #00a6ff;
+
+    padding-right: 20px;
+  }
+
+
+  /* =========================================
+     LEFT SIDE
+  ========================================= */
+
+  .left {
     display: flex;
     align-items: center;
   }
+
+
+  /* ---------- LOGIN ---------- */
 
   .login {
     display: flex;
-    background-color: white;
-    justify-content: center;
     align-items: center;
-    text-align: center;
-    border-radius: 10px;
-    padding: 10px 30px;
-    font-weight: bold;
+    justify-content: center;
+
+    margin-right: 15px;
+
+    background: white;
+
+    border-radius: 9px;
+
+    padding: 10px 22px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition:
+      background 0.25s ease,
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
   }
+
+
+  .login:hover {
+    background: #00a6ff;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(0, 166, 255, 0.25);
+  }
+
 
   .login a {
-    color: rgb(0, 35, 73);
+    color: #05044e;
+
+    text-decoration: none;
+
+    white-space: nowrap;
   }
-    .menuButton {
+
+
+  .login:hover a {
+    color: white;
+  }
+
+
+  /* ---------- MENU BUTTON ---------- */
+
+  .menuButton {
     display: none;
+  }
 
+
+  /* ---------- MOBILE MENU ---------- */
+
+  .mobileMenu {
+    display: none;
   }
 }
 
-@keyframes gradientMoveHeader {
-  0% {
-    background-position: 0% 50%;
-  }
 
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
-/***********  mobile Menu ****************/
-
-
-
-/* =========================
+/* =========================================
    MOBILE
-========================= */
+========================================= */
 
 @media screen and (max-width: 1000px) {
 
   .container {
-    display: flex;
-    justify-content: space-between;
-    padding: 5px 20px;
-    align-items: center;
     height: 70px;
-    padding: 8px 15px;
-     background: linear-gradient(
-      211deg,
-      rgba(2, 0, 36, 1) 0%,
-      rgba(5, 4, 78, 1) 18%,
-      rgba(9, 9, 121, 1) 65%,
-      rgba(0, 166, 255, 1) 100%
-    );
-       background-size: 200% 200%;
-    animation: gradientMoveHeader 8s ease infinite;
+
+    padding: 0 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #05044e;
+
+    border-bottom: 1px solid rgba(0, 166, 255, 0.25);
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
   }
+
+
+  /* ---------- LOGO ---------- */
+
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+
 
   .logo img {
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
+    width: 85px;
+    height: 60px;
+
+    object-fit: contain;
   }
 
-  /* مخفی کردن لینک‌های دسکتاپ */
 
-  .right a {
+  /* ---------- DESKTOP NAV ---------- */
+
+  .right {
+    display: flex;
+    align-items: center;
+  }
+
+
+  .right > a,
+  .advertising {
     display: none;
   }
+
+
+  /* ---------- LEFT ---------- */
+
+  .left {
+    display: flex;
+    align-items: center;
+  }
+
 
   .login {
     display: none;
   }
 
-  /* نمایش دکمه منو */
+
+  /* ---------- MENU BUTTON ---------- */
 
   .menuButton {
-    display: block;
+    display: flex;
 
-  }
-}
+    align-items: center;
+    justify-content: center;
 
+    width: 42px;
+    height: 42px;
 
-.mobileMenu {
-  position: absolute;
+    padding: 0;
 
-  top: 70px;
-  right: 0;
+    border: 1px solid rgba(0, 166, 255, 0.35);
 
-  width: 100%;
+    border-radius: 9px;
 
-  display: flex;
-  flex-direction: column;
+    background: rgba(9, 9, 121, 0.7);
 
-  padding: 20px;
+    color: white;
 
-  background: rgba(2, 0, 36, 0.98);
+    font-size: 24px;
 
-  gap: 20px;
-
-}
-
-
-.mobileMenu a {
-  color: white;
-  text-decoration: none;
-  font-size: 17px;
-    &:hover{
     cursor: pointer;
 
-    opacity: 0.8;
-    padding-right: 10px;
-    text-shadow: 5px 5px 50px gray;
-    transition: all 300ms linear;
+    transition:
+      background 0.25s ease,
+      color 0.25s ease,
+      transform 0.25s ease;
   }
+
+
+  .menuButton:hover {
+    background: #00a6ff;
+
+    color: #05044e;
+
+    transform: scale(1.05);
+  }
+
+
+  /* =========================================
+     MOBILE MENU
+  ========================================= */
+
+  .mobileMenu {
+    position: absolute;
+
+    top: 70px;
+    right: 0;
+
+    width: 100%;
+
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+
+    background: #05044e;
+
+    border-bottom: 1px solid rgba(0, 166, 255, 0.25);
+
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+
+    animation: mobileMenuShow 0.25s ease;
+
+    z-index: 3000;
+  }
+
+
+  .mobileMenu a {
+    display: flex;
+    align-items: center;
+
+    min-height: 48px;
+
+    padding: 0 15px;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    border-radius: 8px;
+
+    transition:
+      background 0.2s ease,
+      color 0.2s ease,
+      padding-right 0.2s ease;
+  }
+
+
+  .mobileMenu a:hover {
+    background: #090979;
+
+    color: #00a6ff;
+
+    padding-right: 22px;
+  }
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes dropdownShow {
+
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+
+@keyframes mobileMenuShow {
+
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
 }

@@ -5,11 +5,11 @@ import Footer from '../modules/footer';
   export default function Layout({children}) {
     return (
       <>
-        <div>
+        <div className="flex flex-col">
           <Header />
         </div>
 
-        <div>{children}</div>
+        <main className="flex-1">{children}</main>
         <div>
           <Footer />
         </div>
